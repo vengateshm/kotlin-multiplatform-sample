@@ -34,7 +34,8 @@ class MainActivity : ComponentActivity() {
                 ) {
 //                    SampleView()
 //                    PreferenceStorageSample()
-                    StockApp()
+//                    StockApp()
+                    StarWarsFilm()
                 }
             }
         }

@@ -3,6 +3,7 @@ plugins {
     id("com.android.library")
     kotlin("plugin.serialization") version "1.8.21"
     id("com.squareup.sqldelight")
+    id("com.apollographql.apollo3") version "3.8.2"
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -27,6 +28,8 @@ kotlin {
         }
     }
 
+    jvm()
+
     val coroutinesVersion = "1.7.1"
     val ktorVersion = "2.3.2"
     val koinVersion = "3.3.2"
@@ -50,6 +53,9 @@ kotlin {
                 api("io.insert-koin:koin-core:$koinVersion")
 
                 implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
+
+                //Graph QL
+                implementation("com.apollographql.apollo3:apollo-runtime:3.8.2")
             }
         }
         val commonTest by getting {
@@ -85,5 +91,11 @@ android {
 sqldelight {
     database("AppDatabase") {
         packageName = "dev.vengateshm.samplekmm.shared.cache"
+    }
+}
+
+apollo {
+    service("service"){
+        packageName.set("dev.vengateshm.samplekmm")
     }
 }

@@ -1,0 +1,14 @@
+query GetAllFilms{
+  allFilms{
+    films{
+      ...FilmFragment
+    }
+  }
+}
+
+fragment FilmFragment on Film{
+  id
+  title
+  director
+  openingCrawl
+}
